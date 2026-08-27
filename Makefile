@@ -21,3 +21,6 @@ ruff: requirements
 .PHONY: mypy
 mypy: requirements
 	uv run mypy . $(ARGS)
+
+.PHONY: full_qa
+full_qa: ruff mypy

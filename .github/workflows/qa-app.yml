@@ -7,10 +7,10 @@ on:
 
 jobs:
   quality-assurance:
-    name: Quality Assurance API
+    name: Quality Assurance APP
     runs-on: ubuntu-latest
     env:
-      VUH_MODULE_CONFIGURATION: 'API'
+      VUH_MODULE_CONFIGURATION: 'APP'
     steps:
 
       - name: Checkout

@@ -11,8 +11,8 @@ jobs:
     with:
       VUH_VERSION: 'v2.14.3'
 
-  quality-assurance-api:
-    name: Quality assurance for api module
-    uses: ./.github/workflows/qa-api.yml
+  quality-assurance-app:
+    name: Quality assurance for app module
+    uses: ./.github/workflows/qa-app.yml
     with:
       VUH_VERSION: 'v2.14.3'
