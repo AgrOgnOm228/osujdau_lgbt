@@ -1,5 +1,6 @@
 import pygame
-from .scenes.scene_manager import SceneManager
+
+from src.scenes.scene_manager import SceneManager
 
 
 def main():

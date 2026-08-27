@@ -1,8 +1,9 @@
 import random
-import pygame
-from src.config import settings
-
 from pathlib import Path
+
+import pygame
+
+from src.config import settings
 
 
 class Cat:

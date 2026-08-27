@@ -1,9 +1,8 @@
 import pygame
-import sys
 from PIL import Image
 
-from ..config import settings
-from ..cat import Cat   
+from src.cat import Cat
+from src.config import settings
 
 INTRO = 0
 NAME_INPUT = 1
@@ -125,8 +124,8 @@ class SceneManager:
                 elif self.rect_restart_no.collidepoint(event.pos):
                     self.restart_choice = False
 
-            if self.state == STATUS and self.status_timer > 500:
-                if event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
+            if (self.state == STATUS and self.status_timer > 500) and \
+                (event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN):
                     if self.cat and self.cat.life <= 0:
                         self.state = RESTART
                         self.restart_choice = None
