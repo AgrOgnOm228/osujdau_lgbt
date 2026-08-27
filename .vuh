@@ -1,0 +1,22 @@
+MAIN_BRANCH_NAME='master'
+
+function after_successful_version_update() {
+  old_version=$1
+  new_version=$2
+  if [ "$SPECIFIED_PROJECT_MODULE" = 'WEB' ]; then
+    cd "$ROOT_REPO_DIR/$MODULE_ROOT_PATH"
+    npm i --package-lock-only
+    cd -
+  fi
+}
+
+# ------------------------------------- begin mono repository variables ------------------------------------- #
+
+PROJECT_MODULES='APP'
+
+APP_VERSION_FILE='src/config.py'
+APP_TEXT_BEFORE_VERSION_CODE="APP_VERSION = '"
+APP_TEXT_AFTER_VERSION_CODE="'"
+APP_MODULE_ROOT_PATH=""
+
+# ------------------------------------- end mono repository variables ------------------------------------- #

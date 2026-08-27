@@ -1,0 +1,27 @@
+name: Check new version is greater than main version
+
+on:
+  workflow_call:
+    inputs:
+      VUH_VERSION: { required: true, type: string }
+
+jobs:
+
+  validate-version:
+    name: Check new version is greater than main version
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module: ['API']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validating version using VUH
+        uses: Greewil/version-update-helper@gha/validate-version/v1
+        with:
+          version: "${{ inputs.VUH_VERSION }}"
+          module: "${{ matrix.module }}"
+          check-git-diff: true
