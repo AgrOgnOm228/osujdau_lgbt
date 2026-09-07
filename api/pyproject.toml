@@ -1,0 +1,79 @@
+[project]
+name = "web-cat"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.141.1",
+    "pydantic-settings>=2.15.0",
+    "uvicorn>=0.52.4",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=2.3.1",
+    "ruff>=0.16.4",
+]
+
+[tool.ruff]
+line-length = 120
+lint.select = [
+    "E",   # Pyflakes (errors)
+    "F",   # Pyflakes (unused imports and other)
+    "I",   # isort (sorting imports)
+    "W",   # PEP 8 (style)
+    "N",   # PEP 8 (naming)
+    "D",   # pydocstyle (docstrings)
+    "B",   # flake8-bugbear (potential bugs)
+    "C4",  # flake8-comprehensions (optimization for comprehensions)
+    "UP",  # Universal rules (f.e. f-strings)
+]
+lint.ignore = [
+    "N818",  # exception name should be named with an Error suffix
+    "D100",  # missing docstring in public module
+    "D101",  # missing docstring in public class
+    "D102",  # missing docstring in public method
+    "D103",  # missing docstring in public function
+    "D104",  # missing docstring in public package
+    "D105",  # missing docstring in magic method
+    "D107",  # Missing docstring in `__init__` method
+    "UP017",  # Using datetime.UTC instead of timezone.utc
+    "B008",   # Do not perform function call in argument defaults
+    "D203",   # 1 blank line required before class docstring (incompatible with D211)
+    "D212",   # Multi-line docstring summary should start at the first line (incompatible with D213)
+]
+exclude = [
+    ".git",
+    "__pycache__",
+    "conf",
+    "venv",
+    ".venv",
+    ".vscode",
+    ".idea",
+    "migrations/",
+]
+
+[tool.mypy]
+python_version = "3.10"
+cache_dir = ".mypy_cache"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_subclassing_any = true
+disallow_untyped_decorators = true
+
+
+[[tool.mypy.overrides]]
+module = [
+    "boto3.*",
+    "botocore.*",
+    "fastapi_swagger_dark",
+    "emails",
+    "alembic.*",
+]
+ignore_missing_imports = true
+follow_imports = "skip"

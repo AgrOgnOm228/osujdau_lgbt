@@ -12,17 +12,11 @@ function after_successful_version_update() {
 
 # ------------------------------------- begin mono repository variables ------------------------------------- #
 
-PROJECT_MODULES='API, API'
+PROJECT_MODULES='APP'
 
-API_VERSION_FILE='api/src/config.py'
-API_TEXT_BEFORE_VERSION_CODE="APP_VERSION = '"
-API_TEXT_AFTER_VERSION_CODE="'"
-API_MODULE_ROOT_PATH="api/"
-
-
-APP_VERSION_FILE='app/src/config.py'
+APP_VERSION_FILE='src/config.py'
 APP_TEXT_BEFORE_VERSION_CODE="APP_VERSION = '"
 APP_TEXT_AFTER_VERSION_CODE="'"
-APP_MODULE_ROOT_PATH="app/"
+APP_MODULE_ROOT_PATH=""
 
 # ------------------------------------- end mono repository variables ------------------------------------- #

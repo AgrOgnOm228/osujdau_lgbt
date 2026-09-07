@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pygame
 
-from src.config import settings
+from app.src.config import settings
 
 
 class Cat:
