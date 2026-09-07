@@ -1,0 +1,38 @@
+name: Quality Assurance API
+
+on:
+  workflow_call:
+    inputs:
+      VUH_VERSION: { required: true, type: string }
+
+jobs:
+  quality-assurance:
+    name: Quality Assurance API
+    runs-on: ubuntu-latest
+    env:
+      VUH_MODULE_CONFIGURATION: 'API'
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Установка UV
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          version: "latest"
+
+      - name: Установка Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.14'
+
+      - name: Collect project module info
+        id: vuh_collect_info
+        uses: Greewil/version-update-helper@gha/collect-info/v1
+        with:
+          version: "${{ inputs.VUH_VERSION }}"
+          module: "${{ env.VUH_MODULE_CONFIGURATION }}"
+
+      - name: QA
+        run: make full_qa

@@ -4,3 +4,4 @@
 __pycache__
 uv.lock
 .ruff_cache
+.mypy_cache

@@ -1,8 +1,8 @@
 import pygame
 from PIL import Image
 
-from src.cat import Cat
-from src.config import settings
+from app.src.cat import Cat
+from app.src.config import settings
 
 INTRO = 0
 NAME_INPUT = 1

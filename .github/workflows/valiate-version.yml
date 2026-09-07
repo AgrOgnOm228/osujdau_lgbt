@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        module: ['APP']
+        module: ['APP', 'API']
     steps:
       - name: Checkout
         uses: actions/checkout@v4
